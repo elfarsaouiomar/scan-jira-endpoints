@@ -1,9 +1,7 @@
 ```        
-
-                        # test jira endpoints
-                        # @omarelfarsaoui
-                        # version 1.0     
+sometimes you get an jira instance and you want to test all endpoints , it's really hard to do it manually , this tool will help you to reduce time and test all endpoint for you  
 ```
+
 ### Intallation
 
 ```bash
