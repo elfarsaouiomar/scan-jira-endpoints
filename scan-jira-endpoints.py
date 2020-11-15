@@ -1,9 +1,8 @@
-
 #!/usr/bin/env python
 
-version = "1.0"
-
-__aut
+__version__ = "1.0"
+__author__ = "omar elfarsaoui"
+__twitter__ = "@omarelfarsaoui"
 
 try:
     from requests import get
@@ -20,7 +19,7 @@ requests.packages.urllib3.disable_warnings()
 
 
 def initArgparse():
-    parser = argparse.ArgumentParser(description='Simple tools to test jira endpoint')
+    parser = argparse.ArgumentParser(description='Simple tools to test jira endpoints')
     parser.add_argument("-u", "--url", help="jira instence", type=str, metavar='', required=True)
     return parser.parse_args()
 
@@ -80,13 +79,13 @@ def getJiraVersion(url):
         exit(0)
 
     except Exception as identifier:
-        print(colored("[!] Unable to get the version \n[!] {}".format(str(identifier)), "red"))
+        print(colored("[!] Unable to get the version \n[!] may be is not jira instance", "red"))
         exit(0)
 
 def makeReqToJira(url, endpoints):
     """
-        this fuction take url and enpoints as list 
-        and request to every enpoint
+    this fuction take url and enpoints as list 
+    and request to every enpoint
     """
     try:
         if url.endswith("/"):
@@ -114,6 +113,7 @@ def makeReqToJira(url, endpoints):
 
 def main(url):
     try:
+
         version = getJiraVersion(url)
         endpoints = getEndPoints(version=version)
         makeReqToJira(url=url, endpoints=endpoints)
