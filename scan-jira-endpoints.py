@@ -4,19 +4,18 @@ __version__ = "1.0"
 __author__ = "omar elfarsaoui"
 __twitter__ = "@omarelfarsaoui"
 
-try:
-    from requests import get
-    import requests.packages.urllib3
-    from bs4 import BeautifulSoup
-    from termcolor import colored
-    import argparse
-except ModuleNotFoundError as identifier:
-    print(colored("[+] {} \n[!] pip3 install module".format(str(identifier)),"red"))
-    exit(0)
+
+from requests import get
+import requests.packages.urllib3
+from bs4 import BeautifulSoup
+from termcolor import colored
+import argparse
+
 
 # disable requests warnings
 requests.packages.urllib3.disable_warnings()
 
+# target = https://jiratest.starbucks.com/
 
 def initArgparse():
     parser = argparse.ArgumentParser(description='Simple tools to test jira endpoints')
@@ -125,6 +124,9 @@ def main(url):
     except Exception as error:
         print(colored("[!] {0}".format(error), "red"))
 
+def cveScanner():
+    pass
+    
 
 if __name__ == "__main__":
     args = initArgparse()
